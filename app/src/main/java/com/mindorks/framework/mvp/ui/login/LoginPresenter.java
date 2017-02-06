@@ -47,8 +47,8 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V> imp
 
     @Override
     public void onServerLoginClick(String email, String password) {
-        //validate email and password
-        if (email == null || email.isEmpty()) {
+        //validate email and password 
+        if (TextUtils.isEmpty(email)) {
             getMvpView().onError(R.string.empty_email);
             return;
         }
@@ -56,7 +56,7 @@ public class LoginPresenter<V extends LoginMvpView> extends BasePresenter<V> imp
             getMvpView().onError(R.string.invalid_email);
             return;
         }
-        if (password == null || password.isEmpty()) {
+        if (TextUtils.isEmpty(password)) {
             getMvpView().onError(R.string.empty_password);
             return;
         }
