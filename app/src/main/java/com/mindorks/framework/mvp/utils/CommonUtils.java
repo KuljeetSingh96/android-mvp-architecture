@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import android.util.Patterns;
 /**
  * Created by janisharali on 27/01/17.
  */
@@ -64,14 +64,7 @@ public final class CommonUtils {
     }
 
     public static boolean isEmailValid(String email) {
-        Pattern pattern;
-        Matcher matcher;
-        String EMAIL_PATTERN =
-                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        pattern = Pattern.compile(EMAIL_PATTERN);
-        matcher = pattern.matcher(email);
-        return matcher.matches();
+       return  Patterns.EMAIL_ADDRESS.matcher(email).matches();  
     }
 
     public static String loadJSONFromAsset(Context context, String jsonFileName) throws IOException {
